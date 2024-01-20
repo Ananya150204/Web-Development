@@ -1,0 +1,65 @@
+document.addEventListener('DOMContentLoaded', () => {
+  // Access the main posts container
+  const postsContainer = document.getElementById('posts');
+
+  // Create a new post container
+  const postDiv = document.createElement('div');
+  postDiv.className = 'post';
+
+  // Create and append an h3 tag for the author
+  const authorElement = document.createElement('h3');
+  authorElement.textContent = post1.author;
+  postDiv.appendChild(authorElement);
+
+  // Create and append an img tag for the post image
+  const imageElement = document.createElement('img');
+  imageElement.src = post1.imageUrl;
+  postDiv.appendChild(imageElement);
+
+  // Create and append a p tag for the content
+  const contentElement = document.createElement('p');
+  contentElement.textContent = post1.content;
+  postDiv.appendChild(contentElement);
+
+  // Create and append a button for likes
+  const likeButton = document.createElement('button');
+  likeButton.textContent = 'Like';
+  postDiv.appendChild(likeButton);
+
+  // Create and append an input tag for comments
+  const commentInput = document.createElement('input');
+  commentInput.type = 'text';
+  postDiv.appendChild(commentInput);
+
+  // Create and append a button for submitting comments
+  const commentButton = document.createElement('button');
+  commentButton.textContent = 'Comment';
+  postDiv.appendChild(commentButton);
+
+  // Create and append a div for post-footer
+  const postFooter = document.createElement('div');
+  postFooter.className = 'post-footer';
+  postFooter.textContent = `Likes: ${post1.likes} Comments: ${post1.comments.length}`;
+  postDiv.appendChild(postFooter);
+
+  // Create and append a div for comments-container
+  const commentsContainer = document.createElement('div');
+  commentsContainer.className = 'comments-container';
+  commentsContainer.style.display = 'none';
+  
+  // Append each comment as a p tag to the comments-container
+  post1.comments.forEach(comment => {
+    const commentParagraph = document.createElement('p');
+    commentParagraph.textContent = comment;
+    commentsContainer.appendChild(commentParagraph);
+  });
+  postDiv.appendChild(commentsContainer);
+
+  // Event listener for post-footer to toggle comments-container display
+  postFooter.addEventListener('click', () => {
+    commentsContainer.style.display = commentsContainer.style.display === 'none' ? 'block' : 'none';
+  });
+
+  // Append the postDiv to the main posts container
+  postsContainer.appendChild(postDiv);
+});
