@@ -1,0 +1,36 @@
+function addBlog(blog) {
+    // Create a new div for the blog post
+    var blogPostDiv = document.createElement('div');
+    blogPostDiv.className = 'blog-post';
+
+    // Create a new div for the blog header
+    var blogHeaderDiv = document.createElement('div');
+    blogHeaderDiv.className = 'blog-header';
+
+    // Create an h2 element for the blog title
+    var titleElement = document.createElement('h2');
+    titleElement.className = 'blog-title';
+    titleElement.textContent = blog.title;
+
+    // Create a p element for the blog date
+    var dateElement = document.createElement('p');
+    dateElement.className = 'blog-date';
+    dateElement.textContent = blog.date;
+
+    // Create a p element for the blog content
+    var contentElement = document.createElement('p');
+    contentElement.className = 'blog-content';
+    contentElement.textContent = blog.content;
+
+    // Append the title and date to the blog header
+    blogHeaderDiv.appendChild(titleElement);
+    blogHeaderDiv.appendChild(dateElement);
+
+    // Append the blog header and content to the blog post
+    blogPostDiv.appendChild(blogHeaderDiv);
+    blogPostDiv.appendChild(contentElement);
+
+    // Append the blog post to the blog list
+    var blogList = document.querySelector('.blog-list');
+    blogList.appendChild(blogPostDiv);
+}
